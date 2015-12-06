@@ -8,6 +8,23 @@ namespace ConsoleApplication1
 {
 	class Program
 	{
+        static void MakeAGess()
+        {
+            Console.WriteLine(@"type any number");
+            string input = Console.ReadLine();
+            Console.WriteLine(@"time it by 5");
+            string inputTimesFive = Console.ReadLine();
+
+
+            int val = int.Parse(input);
+            int answer = int.Parse(inputTimesFive);
+
+            if (val * 5 == answer)
+                Console.WriteLine(@"Correct! good for you!= (");
+            else
+                Console.WriteLine(@"horribile! are you egyptian!= )");
+        }
+
 		static void AnnoyingBanana()
 		{
 			Console.WriteLine("hi i like bananas! what do u think?");
