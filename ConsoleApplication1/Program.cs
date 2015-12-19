@@ -42,7 +42,7 @@ namespace ConsoleApplication1
 			Console.WriteLine(" O.K.i won't let u out. >= )");
 		}
 
-		static ConsoleKeyInfo outputmenu()
+		static string outputmenu()
 		{
 			Console.Clear();
             Console.WriteLine("1. add");
@@ -51,15 +51,64 @@ namespace ConsoleApplication1
 			Console.WriteLine("4. divide");
 			Console.WriteLine("5. exit");
 
-			return Console.ReadKey();
+			return Console.ReadLine();
 		}
+
+		static void AddHandler()
+		{
+			Console.Clear();
+			Console.WriteLine("Welcome to add!");
+
+			float first = AskUserForNumber("first");
+			float second = AskUserForNumber("second");
+
+			Console.Write(String.Format("{0} + {1} = {2}", first, second, first + second));
+			Console.ReadKey();
+        }
+		static void SubtractHandler()
+		{
+			Console.Clear();
+			Console.WriteLine("Welcome to sub!");
+
+			float first = AskUserForNumber("first");
+			float second = AskUserForNumber("second");
+
+			Console.Write(String.Format("{0} - {1} = {2}", first, second, first - second));
+			Console.ReadKey();
+		}
+		static float AskUserForNumber(string lable)
+		{
+			bool Error = true;
+			float returnValue = 0;
+			do
+			{
+
+				Console.Write("Enter your "+lable+" number:");
+				string first = Console.ReadLine();
+				// Check if something whent wrong then repeat previous step
+				// If no error set Error = false;
+				Error = !float.TryParse(first, out returnValue);
+            } while (Error);
+			return returnValue;
+        }
 
 		static void Main(string[] args)
 		{
-			ConsoleKeyInfo key;
+			string key;
 			do {
 				key = outputmenu();
-			} while (key.Key != ConsoleKey.D5);
+
+				if (key == "1")
+				{
+					// call add function
+					AddHandler();
+				}
+				if (key == "2")
+				{
+					SubtractHandler();
+				}
+
+			} while (key != "5");
 		}
 	}
 }
