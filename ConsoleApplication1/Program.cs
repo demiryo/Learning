@@ -45,13 +45,14 @@ namespace ConsoleApplication1
 		static string outputmenu()
 		{
 			Console.Clear();
-            Console.WriteLine("1. add");
+            Console.WriteLine("1. addition");
 			Console.WriteLine("2. subtraction");
 			Console.WriteLine("3. multiplacation");
 			Console.WriteLine("4. divide");
 			Console.WriteLine("5. exit");
-
-			return Console.ReadLine();
+			Console.WriteLine("select a number and press enter");
+           
+				return Console.ReadLine();
 		}
 
 		static void AddHandler()
@@ -74,6 +75,28 @@ namespace ConsoleApplication1
 			float second = AskUserForNumber("second");
 
 			Console.Write(String.Format("{0} - {1} = {2}", first, second, first - second));
+			Console.ReadKey();
+		}
+		static void MultiplyHandler()
+		{
+			Console.Clear();
+			Console.WriteLine("Welcome to times!");
+
+			float first = AskUserForNumber("first");
+			float second = AskUserForNumber("second");
+
+			Console.Write(String.Format("{0} x {1} = {2}", first, second, first * second));
+			Console.ReadKey();
+		}
+		static void DivideHandler()
+		{
+			Console.Clear();
+			Console.WriteLine("Welcome to divide!");
+
+			float first = AskUserForNumber("first");
+			float second = AskUserForNumber("second");
+
+			Console.Write(String.Format("{0} / {1} = {2}", first, second, first / second));
 			Console.ReadKey();
 		}
 		static float AskUserForNumber(string lable)
@@ -106,8 +129,15 @@ namespace ConsoleApplication1
 				if (key == "2")
 				{
 					SubtractHandler();
+                }
+				if (key == "3")
+				{
+					MultiplyHandler();
 				}
-
+				if (key == "4")
+				{
+					DivideHandler();
+				}
 			} while (key != "5");
 		}
 	}
