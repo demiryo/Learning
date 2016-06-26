@@ -1,6 +1,4 @@
-ConsoleApplication1/bin/
-Drawing/obj/
-ConsoleApplication1/obj/
-Drawing/bin/
 .vs/
-*/.idea/
+.idea/
+bin/
+obj/
