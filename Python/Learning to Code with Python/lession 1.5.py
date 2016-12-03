@@ -17,3 +17,4 @@ square(150)
 mark.forward(200)
 square(200)
 
+turtle.done()
