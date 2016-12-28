@@ -9,9 +9,10 @@
 
     OPTIONAL IDEAS
         color if we have time
-        make a gulty spark in the background.
+        make a gulty spark in the background. and cange the background as questions go by.
 
 """
+
 
 def RunIntroduction():
     print(  "welcome reclamer,")
@@ -23,8 +24,31 @@ def RunLevel_1():
     level1Score = 0
     user_input = raw_input("respond yes or no: ")
     if user_input == "yes":
-        level1Score += 170
+        level1Score += 10
+    else:
+        print ("reclamer!?... ALREADY!!? YOU DISCUST ME!!!")
+        level1Score -= 10
+    user_input = raw_input("great! now just in case.... do you know what reclamer means? (one word awnser) ")
+    if user_input.lower() in ("human"): # what will you do if the user typed Human, or HuMaN are they still correct?
+        level1Score += 10
+    else:
+        print ("reclamer!?... how do you not know your species formal name!!? this is disoponting..")
+        level1Score -= 10
+    user_input = raw_input("next do you know how old the master cheif is? ")
+    if user_input == "18":
+        level1Score += 10
+    else:
+        print ("reclamer!?... how do you not know your species savior? you are clearly not good at this..")
+        level1Score -= 10
+    user_input = raw_input("who is Thel Vadum? (2 word answer start with: the (YOUR ANSWER)")
+    if user_input.lower() in ("the arbiter"):
+        level1Score += 10
+    else:
+        print ("reclamer!?... how do you not know your species allys leaders? you disopont me... you are wasting my time!")
+        level1Score -= 10
+
     return level1Score
+
 
 def RunLevel_2():
     #NYI
