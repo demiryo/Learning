@@ -4,14 +4,15 @@ import time
 
 
 class Square:
-    def __init__(self, x, y):
+    def __init__(self, x, y, color):
         self.x = x
         self.y = y
-
+        self.color = color
     def drawself(self, turtle):
         # draw a black box at its coordinates, leaving a small gap between cubes
         turtle.goto(self.x - 9, self.y - 9)
         turtle.begin_fill()
+        turtle.color(self.color)
         for i in range(4):
             turtle.forward(18)
             turtle.left(90)
@@ -23,6 +24,7 @@ class Food:
         self.x = x
         self.y = y
         self.state = "ON"
+        self.color = "red"
 
     def changelocation(self):
         # I haven't programmed it to spawn outside the snake's body yet
@@ -33,6 +35,7 @@ class Food:
         # similar to the Square drawself, but blinks on and off
         if self.state == "ON":
             turtle.goto(self.x - 9, self.y - 9)
+            turtle.color(self.color)
             turtle.begin_fill()
             for i in range(4):
                 turtle.forward(18)
@@ -47,7 +50,8 @@ class Food:
 class Snake:
     def __init__(self):
         self.headposition = [20, 0] # keeps track of where it needs to go next
-        self.body = [Square(-20, 0), Square(0, 0), Square(20, 0)] # body is a list of squares
+        self.color = "green"
+        self.body = [Square(-20, 0, self.color), Square(0, 0, self.color), Square(20, 0, self.color)] # body is a list of squares
         self.nextX = 1 # tells the snake which way it's going next
         self.nextY = 0
         self.crashed = False # I'll use this when I get around to collision detection
@@ -56,9 +60,9 @@ class Snake:
         # prepares the next location to add to the snake
 
     def moveOneStep(self):
-        if Square(self.nextposition[0], self.nextposition[1]) not in self.body:
+        if Square(self.nextposition[0], self.nextposition[1], self.color) not in self.body:
             # attempt (unsuccessful) at collision detection
-            self.body.append(Square(self.nextposition[0], self.nextposition[1]))
+            self.body.append(Square(self.nextposition[0], self.nextposition[1], self.color))
             # moves the snake head to the next spot, deleting the tail
             del self.body[0]
             self.headposition[0], self.headposition[1] = self.body[-1].x, self.body[-1].y
@@ -86,7 +90,7 @@ class Snake:
 
     def eatFood(self):
         # adds the next spot without deleting the tail, extending the snake by 1
-        self.body.append(Square(self.nextposition[0], self.nextposition[1]))
+        self.body.append(Square(self.nextposition[0], self.nextposition[1], self.color))
         self.headposition[0], self.headposition[1] = self.body[-1].x, self.body[-1].y
         self.nextposition = [self.headposition[0] + 20*self.nextX,
                              self.headposition[1] + 20*self.nextY]
