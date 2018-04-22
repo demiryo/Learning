@@ -40,7 +40,7 @@ def RunLevel_1():
     else:
         print ("reclamer!?... how do you not know your species savior? you are clearly not good at this.. he is 18...")
         level1Score -= 10
-    user_input = raw_input("who is Thel Vadum? (2 word answer start with: the (YOUR ANSWER): plus no caps")
+    user_input = raw_input("who is Thel Vadam? (2 word answer start with: the (YOUR ANSWER): plus no caps")
     if user_input.lower() in ("the arbiter"):
         level1Score += 10
     else:
@@ -57,14 +57,15 @@ def RunLevel_2():
 
 
 def RunTheGame():
+    passScore = 30
     RunIntroduction()
     totalScore = 0
-    if passScore  >= 130:
-        print ("you where like a grunt... but this will do thank you for the information reclamer")
-    if passScore  >= 150:
-        print ("good! your like a elite your cunning powerful and vigalante good info reclamer")
     scoreForLevel_1 = RunLevel_1()
     totalScore = totalScore + scoreForLevel_1
+
+    if totalScore  <= 30:
+        print ("you where like a grunt... but this will do thank you for the information reclamer")
+
     if scoreForLevel_1 < passScore:
         RunGameOver("obsevation 1", totalScore)
         return
@@ -74,6 +75,8 @@ def RunTheGame():
     if scoreForeLevel_2 < passScore:
         RunGameOver("obsevation 2", totalScore)
         return
+    if totalScore  >= 40:
+        print ("good! your like a elite your cunning powerful and vigalante good info reclamer")
 
 def RunGameOver(levelName, score):
     print("Failed in {} score is {}".format(levelName, score))

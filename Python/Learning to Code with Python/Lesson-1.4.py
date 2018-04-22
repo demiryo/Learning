@@ -36,7 +36,7 @@ mark.reset()
 # sea shell
 # -----------------------------------------------
 
-
+mark.speed(0)
 for i in range(50):
     mark.circle(i * 3)
     mark.left(10)
@@ -46,6 +46,7 @@ mark.reset()
 # rose
 # -----------------------------------------------
 
+mark.speed(0)
 for i in range(30):
     mark.circle(i*3, 180)
     mark.right(45)
@@ -56,7 +57,7 @@ mark.reset()
 # -----------------------------------------------
 
 
-
+mark.speed(0)
 for i in range(100):
     mark.forward(i*2)
     mark.circle(i*2, 90)
@@ -67,11 +68,23 @@ mark.reset()
 # -----------------------------------------------
 # swerly spikes
 # -----------------------------------------------
-
-for i in range(154):
+mark.speed(0)
+for i in range(100):
 
     mark.circle(i*5, 75)
     mark.forward(i*3)
     mark.left(25)
+mark.reset
+
+
+
+for i in range(10):
+    mark.circle(i*2, 2)
+    mark.forward(i*2)
+    mark.left(i*2)
+mark.reset()
+
+
+
 
 turtle.done

@@ -8,3 +8,7 @@
 /.project
 .suo
 .opensdf
+.vs/
+.idea/
+bin/
+obj/
