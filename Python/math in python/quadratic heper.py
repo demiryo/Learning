@@ -19,10 +19,21 @@ def askuserforabc():
 def ditrminat(a, b, c):
     return b**2-(4*a*c)
 
+def type_ofporabula(a):
+    if a > 0:
+        # if a is >0 then the parabola opens up
+        return "parabola opens up"
+    elif a < 0:
+        return "parabola opens down"
+
+    # the remaining case is that a = 0, which make a strait line
+    return "a strait line!"
+
 if __name__ == "__main__":
     a, b, c = askuserforabc()
     print("a={0}, b={1}, c={2}".format(a, b, c))
     dit= ditrminat(a, b, c)
     print("determinant={}".format(dit))
-
+    type = type_ofporabula(a)
+    print (type)
 
