@@ -6,6 +6,7 @@ ask user to imput a,b,c. then it will caltulate the following
     - solution/ y solution
     -plot curve
 """
+import math
 
 def askuserforabc():
     # ask user for a b c
@@ -29,11 +30,30 @@ def type_ofporabula(a):
     # the remaining case is that a = 0, which make a strait line
     return "a strait line!"
 
-if __name__ == "__main__":
-    a, b, c = askuserforabc()
+def solution_type(dit):
+    if dit<0:
+        return"complex solution (imaginary number)"
+    elif dit==0:
+        return"one rational solution"
+    dit_sqrt= math.sqrt(dit)
+    if dit_sqrt.is_integer():
+        return"two rational solutions"
+    return "two real number solutions"
+
+def test_ABC(a, b, c):
     print("a={0}, b={1}, c={2}".format(a, b, c))
     dit= ditrminat(a, b, c)
     print("determinant={}".format(dit))
     type = type_ofporabula(a)
     print (type)
+    s_type = solution_type(dit)
+    print(s_type)
+
+if __name__ == "__main__":
+    a, b, c = askuserforabc()
+    test_ABC(a, b, c)
+
+    #test_ABC(1, 2, 3) #
+    #test_ABC(1, 2, 1) # one rational solution
+    #test_ABC(1, 1, 1) # Imaginary
 
