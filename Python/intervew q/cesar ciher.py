@@ -1,3 +1,8 @@
+
+
+
+input_string = (raw_input(" input words =  "))
+
 def incrypt(shift, input_string):
     ret = ""
     input_string = input_string.upper()
@@ -17,10 +22,7 @@ def decypt(shift, input_string):
         ret = ret + chr(new_ascii)
     return ret
 
-print decypt(1, incrypt(1, "Tesz"))
-print decypt(2, incrypt(2, "Tesz"))
-print decypt(3, incrypt(3, "Tesz"))
-print decypt(4, incrypt(4, "Tesz"))
-print decypt(5, incrypt(5, "Tesz"))
-print decypt(6, incrypt(6, "Tesz"))
-print decypt(7, incrypt(7, "Tesz"))
+
+print incrypt(1, input_string)
+print ("decription")
+print decypt(1 , incrypt(1, input_string) )
