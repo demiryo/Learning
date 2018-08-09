@@ -1,7 +1,6 @@
 
 
 
-input_string = (raw_input(" input words =  "))
 
 def is_alphabet_character(c):
     ascii_c = ord(c)
@@ -57,8 +56,19 @@ def decypt(shift, input_string):
             ret = ret + c
 
     return ret
+def encriypt_file (shift, input_file_path, output_file_path):
+    with open(input_file_path, "r") as file_stream:
+         encriypted_string = incrypt(shift, file_stream.read())
 
+    with open(output_file_path, "w") as file_stream:
+        file_stream.write(encriypted_string)
 
+def decriypt_file (shift, input_file_path, output_file_path):
+    with open(input_file_path, "r") as file_stream:
+         decriypted_string = decypt(shift, file_stream.read())
+
+    with open(output_file_path, "w") as file_stream:
+        file_stream.write(decriypted_string)
 
 
 
@@ -66,8 +76,12 @@ def decypt(shift, input_string):
 
 #for char in input_string.upper():
     #print "is '{}' an alpha {}".format(char, is_alphabet_character(char))
-
+"""
+input_string = (raw_input(" input words =  "))
 print incrypt(1, input_string)
 print ("decription")
 print decypt(1 , incrypt(1, input_string) )
+"""
 
+encriypt_file(1, "mesage.txt", "mesage.enc.txt")
+decriypt_file(1, "mesage.enc.txt", "mesage.dec.txt")
