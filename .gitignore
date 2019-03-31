@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on 2019-WAVA-CPP/master
 .idea/
 .opensdf
 .suo
@@ -13,3 +14,12 @@
 /venv
 bin/
 obj/
+=======
+.vs/
+.idea/
+bin/
+obj/
+/.project
+/venv
+/.vscode
+>>>>>>> 768ff4b started the read xml files
