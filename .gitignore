@@ -6,3 +6,5 @@
 *.sdf*
 *.ncb
 /.project
+.suo
+.opensdf
