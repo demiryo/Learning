@@ -18,7 +18,7 @@ int computer_guess() // this is the computer's guess and the do will make sure i
 	int cguess;
 	do
 	{
-		cguess = rand() % 9; // random int from 0-8
+		cguess = __rdtsc() % 9; // random int from 0-8
 	} while (!moveIsValid(cguess));
 	return cguess;
 }
