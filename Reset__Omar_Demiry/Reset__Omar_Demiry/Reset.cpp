@@ -39,7 +39,18 @@ void save_high_score(int high_scores[5], string high_score_names[5], string file
 	Output_high_scores.close();
 }
 
-
+void print_high_scores(int high_scores[5], string high_score_names[5])
+{
+	// high scores
+	cout << endl;
+	cout << "high score list..." << endl;
+	cout << endl;
+	for (int i = 0; i < 5; i++)
+	{
+		cout << high_scores[i] << " " << high_score_names[i] << endl;
+	}
+	cout << endl;
+}
 
 
 void main()
@@ -49,25 +60,17 @@ void main()
 	string high_score_names[5];
 	string Player_awnser;
 
-	do
-	{
-		// high scores
-		cout << endl;
-		cout << "high score list..." << endl;
-		cout << endl;
-		for (int i = 0; i < 5; i++)
-		{
-			cout << high_scores[i] << " " << high_score_names[i] << endl;
-		}
+	
 
-		//output high scores onto file
-		save_high_score(high_scores, high_score_names, /*file_name=*/ "high_scores.txt");
+	load_high_score(high_scores, high_score_names, /*file_name=*/ "high_scores.txt");
 
-		cout << "would you like to reset the high score board?" << endl;
-		cout << " Y or N ?" << endl;
-		cin >> Player_awnser;
+	print_high_scores(high_scores, high_score_names);
 
-	} while (Player_awnser != "y");
+	cout << "would you like to reset the high score board?" << endl;
+	cout << " press y to resest and any other key to exit" << endl;
+	cin >> Player_awnser;
+
+
 
 	if (Player_awnser == "y" )
 	{
@@ -85,8 +88,14 @@ void main()
 		high_score_names[2] = "peter_parker";
 		high_score_names[3] = "thor_son_of_odin";
 		high_score_names[4] = "i_am_groot";
+		
+		save_high_score(high_scores, high_score_names, /*file_name=*/ "high_scores.txt");
 
+		
 	}
+
+	// even if we didnt change it we will print it out for debugging
+	print_high_scores(high_scores, high_score_names);
 
 	system("pause");
 
