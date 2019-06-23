@@ -1,0 +1,11 @@
+
+#include <library_to_include>
+// Includes a library
+
+
+using namespace std;
+// Tells the computer you're using the std namespace
+
+
+cout << "This will appear on the screen" << endl;
+// Prints text to the screen
