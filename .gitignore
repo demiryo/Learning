@@ -1,0 +1,10 @@
+*.zip
+*.obj
+*.pdb
+**/Debug/
+**/x64/
+*.sdf*
+*.ncb
+/.project
+.suo
+.opensdf
