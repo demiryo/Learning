@@ -53,7 +53,7 @@ class Snake:
         self.color = "forestgreen"
         self.body = [Square(-20, 0, self.color), Square(0, 0, self.color), Square(20, 0, self.color)] # body is a list of squares
         self.nextX = 1 # tells the snake which way it's going next
-        self.nextY = 0
+        self.nextY = 0   
         self.crashed = False # I'll use this when I get around to collision detection
         self.nextposition = [self.headposition[0] + 20*self.nextX,
                              self.headposition[1] + 20*self.nextY]
@@ -110,7 +110,7 @@ class Game:
         self.snake = Snake()
         self.food = Food(100, 0)
         self.counter = 0 # this will be used later
-        self.commandpending = False # as will this
+        self.commandpending = False # as will this 
 
     def nextFrame(self):
         while True: # now here's where it gets fiddly...
@@ -131,12 +131,33 @@ class Game:
                 self.counter = 0
             else:
                 self.counter += 1
-            self.food.changestate() # makes the food flash
+            self.food.changestate() # makes the food flash 
+            self.drawself(self.artist)
             self.food.drawself(self.artist) # show the food and snake
             self.snake.drawself(self.artist)
             turtle.update()
             self.commandpending = False
-            time.sleep(0.05)
+            time.sleep(0.05) 
+            
+    def drawself(self, turtle):
+        grid_extent = 600
+        box_size = 20
+        grid_shift = box_size / 2
+        turtle.color("grey")
+
+        # vertical lines
+        for i in xrange(grid_shift-grid_extent, grid_shift+grid_extent, box_size):
+            turtle.penup()
+            turtle.goto(i, grid_shift-grid_extent)
+            turtle.pendown()
+            turtle.right(270)
+            turtle.forward(2*grid_extent)
+            turtle.left(270)
+            turtle.penup()
+            turtle.goto(grid_shift-grid_extent, i)
+            turtle.pendown()
+            turtle.forward(2*grid_extent)
+            turtle.penup()
 
     def snakeup(self):
         print("going up") # put this in for debugging purposes
