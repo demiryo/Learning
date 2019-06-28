@@ -24,7 +24,7 @@ class Food:
         self.x = x
         self.y = y
         self.state = "ON"
-        self.color = "red"
+        self.color = "darkred"
 
     def changelocation(self):
         # I haven't programmed it to spawn outside the snake's body yet
@@ -50,7 +50,7 @@ class Food:
 class Snake:
     def __init__(self):
         self.headposition = [20, 0] # keeps track of where it needs to go next
-        self.color = "green"
+        self.color = "forestgreen"
         self.body = [Square(-20, 0, self.color), Square(0, 0, self.color), Square(20, 0, self.color)] # body is a list of squares
         self.nextX = 1 # tells the snake which way it's going next
         self.nextY = 0
@@ -121,7 +121,7 @@ class Game:
             game.screen.onkey(game.snakeright, "Right")
             turtle.tracer(0) # follow it so far?
             self.artist.clear()
-            if self.counter == 5:
+            if self.counter == 2:
             # only moves to next frame every 5 loops, this was an attempt to get rid of the turning delay
                 if (self.snake.nextposition[0], self.snake.nextposition[1]) == (self.food.x, self.food.y):
                     self.snake.eatFood()
