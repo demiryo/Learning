@@ -140,12 +140,18 @@ class Game:
             time.sleep(0.05) 
             
     def drawself(self, turtle):
-        grid_extent = 600
+        grid_extent = 400
         box_size = 20
         grid_shift = box_size / 2
         turtle.color("grey")
+        turtle.penup()
+        turtle.goto(grid_shift-grid_extent, grid_extent+grid_shift)
+        turtle.pendown()
+        for i in range(4):
+            turtle.forward(2*grid_extent)
+            turtle.right(90)
 
-        # vertical lines
+        # grid lines
         for i in xrange(grid_shift-grid_extent, grid_shift+grid_extent, box_size):
             turtle.penup()
             turtle.goto(i, grid_shift-grid_extent)
@@ -158,6 +164,9 @@ class Game:
             turtle.pendown()
             turtle.forward(2*grid_extent)
             turtle.penup()
+
+        turtle.penup()
+        
 
     def snakeup(self):
         print("going up") # put this in for debugging purposes
