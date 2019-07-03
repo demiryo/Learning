@@ -112,6 +112,20 @@ class Game:
         self.counter = 0 # this will be used later
         self.commandpending = False # as will this 
 
+        self.grid_extent = 400 # this is the max extension of the grid in one direction
+                               # the grid size is douple that
+        self.box_size = 20     # The box size
+        self.grid_shift = self.box_size / 2  # Since the turtle draws the box from its center we need to shift the grid one half
+
+        self.top_left = [
+            self.grid_shift-self.grid_extent, # = X
+            self.grid_extent+self.grid_shift  # = Y
+        ]
+        self.bottom_right = [
+            self.grid_shift+self.grid_extent, # = X
+            self.grid_extent-self.grid_shift  # = Y
+        ]
+
     def nextFrame(self):
         while True: # now here's where it gets fiddly...
             game.screen.listen()
@@ -138,33 +152,39 @@ class Game:
             turtle.update()
             self.commandpending = False
             time.sleep(0.05) 
-            
-    def drawself(self, turtle):
-        grid_extent = 400
-        box_size = 20
-        grid_shift = box_size / 2
-        turtle.color("grey")
+
+    def draw_border(self, turtle):
+        turtle.color("black")
         turtle.penup()
-        turtle.goto(grid_shift-grid_extent, grid_extent+grid_shift)
+        turtle.goto(self.top_left[0], self.top_left[1])
+        turtle.pensize(5)
         turtle.pendown()
         for i in range(4):
-            turtle.forward(2*grid_extent)
+            turtle.forward(2*self.grid_extent)
             turtle.right(90)
+        turtle.penup()
 
+    def drawself(self, turtle):
+        self.draw_grid(turtle)
+        self.draw_border(turtle)
+        turtle.penup()
+
+    def draw_grid(self, turtle):
         # grid lines
-        for i in xrange(grid_shift-grid_extent, grid_shift+grid_extent, box_size):
+        turtle.color("grey")
+        turtle.pensize(1)
+        for i in xrange(self.top_left[0], self.bottom_right[0], self.box_size):
             turtle.penup()
-            turtle.goto(i, grid_shift-grid_extent)
+            turtle.goto(i, self.top_left[0])
             turtle.pendown()
             turtle.right(270)
-            turtle.forward(2*grid_extent)
+            turtle.forward(2*self.grid_extent)
             turtle.left(270)
             turtle.penup()
-            turtle.goto(grid_shift-grid_extent, i)
+            turtle.goto(self.top_left[0], i)
             turtle.pendown()
-            turtle.forward(2*grid_extent)
+            turtle.forward(2*self.grid_extent)
             turtle.penup()
-
         turtle.penup()
         
 
