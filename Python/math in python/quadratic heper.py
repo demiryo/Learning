@@ -10,7 +10,7 @@ import math
 
 #required for plotting
 import numpy as np
-import pylab
+import matplotlib.pyplot as pylab
 
 def askuserforabc():
     # ask user for a b c
