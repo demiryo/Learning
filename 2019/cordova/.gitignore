@@ -9,3 +9,4 @@
 # Optional to ignore plugin Git clones
 **/plugins
 **/node_modules
+/MyApp/www/css/fonts
