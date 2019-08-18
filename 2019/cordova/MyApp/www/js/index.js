@@ -40,7 +40,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        document.getElementById("solve").onclick = myfuntion;
+        // document.getElementById("solve").onclick = myfuntion;
 
         console.log('Received Event: ' + id);
     }
