@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <algorithm>
+#include <functional>
 
 using namespace std;
 
@@ -14,7 +16,7 @@ vector<int> ReadInputFile(string fileName);
 void PrintVector(const vector<int>& inputValues);
 
 // Sort the inputValues and return a sorted vector
-vector<int> PlacementSort(const vector<int>& inputValues);
+vector<int> STDSort(const vector<int>& inputValues);
 
 int main()
 {
@@ -23,8 +25,8 @@ int main()
 	PrintVector(inputVector);
 
 	// Do sorting here
-	auto placementSort = PlacementSort(inputVector);
-	cout << "placementSort = ";
+	auto placementSort = STDSort(inputVector);
+	cout << "STDSort = ";
 	PrintVector(placementSort);
 }
 
@@ -39,9 +41,10 @@ int main()
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
-vector<int> PlacementSort(const vector<int>& inputValues)
+vector<int> STDSort(const vector<int>& inputValues)
 {
-	vector<int> retVal;
+	vector<int> retVal(inputValues);
+	sort(retVal.begin(), retVal.end());
 	return retVal;
 }
 
