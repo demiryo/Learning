@@ -51,16 +51,30 @@ vector<int> STDSort(const vector<int>& inputValues)
 void PrintVector(const vector<int>& inputValues)
 {
 	cout << "[";
-	for (size_t index = 0; index < inputValues.size(); index++)
+	for (auto input_iterator = inputValues.begin(); input_iterator != inputValues.end(); ++input_iterator)
 	{
-		cout << inputValues[index];
+		cout << *input_iterator;
 
-		if (index + 1 < inputValues.size())
+		if (input_iterator + 1 != inputValues.end())
 		{
 			cout << ", ";
 		}
 	}
+
 	cout << "]\n";
+}
+
+
+vector<int> InsertionSort(const vector<int>& inputValues)
+{
+	vector<int> retVal;
+
+	for (auto input_iterator = inputValues.begin(); input_iterator != inputValues.end(); ++input_iterator)
+	{
+		// TODO: do the insersion sort
+		// *input_iterator;
+	}
+	return retVal;
 }
 
 vector<int> ReadInputFile(__in string fileName)
