@@ -18,6 +18,8 @@ void PrintVector(const vector<int>& inputValues);
 // Sort the inputValues and return a sorted vector
 vector<int> STDSort(const vector<int>& inputValues);
 
+vector<int> InsertionSort(const vector<int>& inputValues);
+
 int main()
 {
 	auto inputVector = ReadInputFile("input.txt");
@@ -28,6 +30,10 @@ int main()
 	auto placementSort = STDSort(inputVector);
 	cout << "STDSort = ";
 	PrintVector(placementSort);
+
+	auto insertionSort = InsertionSort(inputVector);
+	cout << "InsertionSort = ";
+	PrintVector(insertionSort);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
@@ -67,14 +73,34 @@ void PrintVector(const vector<int>& inputValues)
 
 vector<int> InsertionSort(const vector<int>& inputValues)
 {
-	vector<int> retVal;
+	vector<int> outputval;
 
 	for (auto input_iterator = inputValues.begin(); input_iterator != inputValues.end(); ++input_iterator)
 	{
 		// TODO: do the insersion sort
-		// *input_iterator;
+	    // *input_iterator;
+		if(outputval.empty())
+		{
+			outputval.push_back(*input_iterator);
+			continue;
+		}
+		for (auto output_iterator = outputval.begin(); output_iterator != outputval.end(); ++output_iterator)
+		{
+
+			if (*input_iterator < *output_iterator) 
+			{
+				outputval.insert(output_iterator, *input_iterator); 
+				break;
+			}
+			else if (output_iterator+1 == outputval.end())
+			{
+				outputval.push_back(*input_iterator);
+				break;
+			}
+		}
 	}
-	return retVal;
+	
+	return outputval;
 }
 
 vector<int> ReadInputFile(__in string fileName)
