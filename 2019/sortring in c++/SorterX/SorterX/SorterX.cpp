@@ -77,26 +77,21 @@ vector<int> InsertionSort(const vector<int>& inputValues)
 
 	for (auto input_iterator = inputValues.begin(); input_iterator != inputValues.end(); ++input_iterator)
 	{
-		// TODO: do the insersion sort
-	    // *input_iterator;
-		if(outputval.empty())
-		{
-			outputval.push_back(*input_iterator);
-			continue;
-		}
-		for (auto output_iterator = outputval.begin(); output_iterator != outputval.end(); ++output_iterator)
+		auto output_iterator = outputval.begin();
+		for (; output_iterator != outputval.end(); ++output_iterator)
 		{
 
 			if (*input_iterator < *output_iterator) 
 			{
-				outputval.insert(output_iterator, *input_iterator); 
+				outputval.insert(output_iterator, *input_iterator);
+				output_iterator = outputval.begin(); // cheet to skip the push_back
 				break;
 			}
-			else if (output_iterator+1 == outputval.end())
-			{
-				outputval.push_back(*input_iterator);
-				break;
-			}
+		}
+
+		if (output_iterator == outputval.end())
+		{
+			outputval.push_back(*input_iterator);
 		}
 	}
 	
