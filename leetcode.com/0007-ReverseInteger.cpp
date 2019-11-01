@@ -24,6 +24,12 @@ Assume we are dealing with an environment which could only store integers within
 
 */
 
+/*
+Failing test case : Line 7: Char 15: runtime error: 
+    negation of -2147483648 cannot be represented in type 'int'; 
+    cast to an unsigned type to negate this value to itself (solution.cpp)
+*/
+
 class Solution {
 public:
     int reverse(int x) {
@@ -39,6 +45,12 @@ public:
         {
             str_val = "-" + str_val;
         }
-        return std::stoi(str_val);
+        long result = std::stol(str_val);
+        if (std::numeric_limits<int32_t>::max() < result
+            || std::numeric_limits<int32_t>::min() > result)
+        {
+            return 0;
+        }
+        return result;
     }
 };
