@@ -15,3 +15,4 @@ bin/
 obj/
 *.bin
 /2019/SpongeBobSquarePants/data/com.plexapp.plugins.library.db
+*.lnk
