@@ -40,6 +40,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
+        document.getElementById("trivia_question").value = "My very hard questions?";
         document.getElementById("solve").onclick = myfuntion;
 
         console.log('Received Event: ' + id);
