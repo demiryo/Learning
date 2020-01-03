@@ -33,13 +33,13 @@
           </tr>
           <tr>
             <td><button id="trivia_a1">awnser 1</button> </td>
-            <td><button id="trivia_a2">awnser 2</button> 
+            <td><br>
             </td>
           </tr>
           <tr>
-            <td><button id="trivia_a3">awnser 3</button> 
+            <td><br>
             </td>
-            <td><button id="trivia_a4">awnser 4</button> 
+            <td><br>
             </td>
           </tr>
         </tbody>

@@ -53,6 +53,8 @@ body {
 
 .trivia_question {
     resize: none;
+    height:100%; 
+    width:100%;
 }
 
 /* Landscape layout (with min-width) */
