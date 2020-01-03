@@ -16,6 +16,40 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var questions = [
+    {
+        question: "how many times a day do muslims need to pray?",
+        wrong:[
+            "3",
+            "0",
+            "8"
+        ],
+        right: "5"
+    },
+    {
+        question: "which of the following is a companion (sahaba) of the prophet Muhammad SAW?",
+        wrong:[
+            "Abd-rahma rahgul",
+            "salamun al samak",
+            "Quasem ibn ruman"
+        ],
+        right: "Khalid ibn walid"
+    },
+    {
+        question: "which of the following is a daughter of the prophet Muhammad SAW?",
+        wrong:[
+            "Hadega bint Muhammad",
+            "salma bint Muhammad",
+            "namah bint Muhammad"
+        ],
+        right: "Fatimah bint Muhammad"
+    }
+];
+
+// questions[0]["right_answer"]
+// questions[0]["wrong_answers"][]
+
 var app = {
     // Application Constructor
     initialize: function() {
