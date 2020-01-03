@@ -61,28 +61,19 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-       // window.alert("hello earth"); 
-    },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        document.getElementById("trivia_question").value = "My very hard questions?";
-        document.getElementById("solve").onclick = myfuntion;
+        var trivia = document.getElementById("trivia");
+        this.setUpTrivia(trivia);
 
         console.log('Received Event: ' + id);
+    },
+
+    setUpTrivia: function(element) {
+        var question = document.createElement("textarea");
+        question.setAttribute("id", "trivia_question");
+        question.setAttribute("class", "trivia_question");
+        element.appendChild (question);
     }
 };
 
 app.initialize();
 
-function myfuntion() {
-    window.alert("hello earth");
-}
