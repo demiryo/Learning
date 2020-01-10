@@ -89,6 +89,8 @@ var app = {
                 answerList[i].innerText=question.right;
                 answerList[i].onclick=function(){
                     window.alert("correct");
+                    randQuestionId=Math.floor(Math.random() * questions.length);  // randomly pick a number from 0 - 3
+                    app.loadQuestion(questions[randQuestionId]);
                 };
             }
             else
