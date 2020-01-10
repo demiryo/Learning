@@ -61,7 +61,8 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.loadQuestion(questions[0]);
+        randQuestionId=Math.floor(Math.random() * questions.length);  // randomly pick a number from 0 - 3
+        this.loadQuestion(questions[randQuestionId]);
     },
 
     loadQuestion: function(question){
