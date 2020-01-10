@@ -78,25 +78,31 @@ var app = {
 
         var answerList=[A1,A2,A3,A4];
 
-        var rightEvent=function(){
-            window.alert("correct");
-        };
-
         var lastUsedAnswer=0;
-        for(i = 0; i < 4; i++)
-        { 
+        for(var i = 0; i < 4; i++)
+        (function(i){ 
+            // without this function scope the loop index get incremented out of range.
+            // causing the onclick event handler to run only once
             if(i==randAnswerId)
             {
                 // handle the right answer
                 answerList[i].innerText=question.right;
+                answerList[i].onclick=function(){
+                    window.alert("correct");
+                };
             }
             else
             {
                 // handle wrong answer
                 answerList[i].innerText=question.wrong[lastUsedAnswer];
+                answerList[i].onclick=function(){
+                    window.alert("incorrect");
+                    answerList[i].disabled=true;
+                };
+
                 lastUsedAnswer++;
             }
-        }
+        })(i); // note we are passing i as an argument.
     }
 };
 
