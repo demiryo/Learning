@@ -68,17 +68,34 @@ var app = {
         var Q=document.getElementById("trivia_question");
         Q.value=question.question;
 
+        randAnswerId=Math.floor(Math.random() * 4);  // randomly pick a number from 0 - 3
+
         var A1=document.getElementById("trivia_a1");
-        A1.innerText=question.right;
-
         var A2=document.getElementById("trivia_a2");
-        A2.innerText=question.wrong[0];
-
         var A3=document.getElementById("trivia_a3");
-        A3.innerText=question.wrong[1];
-
         var A4=document.getElementById("trivia_a4");
-        A4.innerText=question.wrong[2];
+
+        var answerList=[A1,A2,A3,A4];
+
+        var rightEvent=function(){
+            window.alert("correct");
+        };
+
+        var lastUsedAnswer=0;
+        for(i = 0; i < 4; i++)
+        { 
+            if(i==randAnswerId)
+            {
+                // handle the right answer
+                answerList[i].innerText=question.right;
+            }
+            else
+            {
+                // handle wrong answer
+                answerList[i].innerText=question.wrong[lastUsedAnswer];
+                lastUsedAnswer++;
+            }
+        }
     }
 };
 
