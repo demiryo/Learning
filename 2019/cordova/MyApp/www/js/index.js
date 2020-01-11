@@ -81,6 +81,7 @@ var app = {
         var lastUsedAnswer=0;
         for(var i = 0; i < 4; i++)
         (function(i){ 
+            answerList[i].disabled=false;
             // without this function scope the loop index get incremented out of range.
             // causing the onclick event handler to run only once
             if(i==randAnswerId)
