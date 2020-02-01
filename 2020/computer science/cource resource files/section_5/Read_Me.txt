@@ -1,0 +1,1 @@
+This folder is a place to save the projects and assignments for this section.
