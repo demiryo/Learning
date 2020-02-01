@@ -17,3 +17,4 @@ obj/
 /2019/SpongeBobSquarePants/data/com.plexapp.plugins.library.db
 *.lnk
 *.msi
+.vscode
