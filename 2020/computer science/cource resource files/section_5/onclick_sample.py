@@ -13,17 +13,12 @@ class MyTurtle(t.Turtle) :
     def randonics(self,x,y) :
         self.left(randint(90,270))
 
-def minegoto(x,y) :
-    # print x,y
-    t1.goto(x,y)
-
 wt=t.Screen()
 t1=MyTurtle()
 wt.register_shape("big",((0,0),(30,0),(30,30),(0,30)))
 t1.shape("big")
-wt.onclick(t1.mygoto,btn=1)
-wt.onclick(minegoto,btn=2)
-t1.onclick(t1.randonics,btn=3)
+#wt.onclick(t1.,btn=1)
+t1.onclick(t1.mygoto,btn=1)
 t1.goto(100,100)
 
 t.mainloop()
