@@ -13,11 +13,10 @@ class Solution {
         bool inc_pos(size_t inc)
         {
 
-         if(m_pos - m_s.end() < inc)
+         if(m_s.end() - m_pos  < inc)
             {
                 return false;
             }
-
            m_pos += inc;    
             return true;
 
@@ -285,7 +284,7 @@ class Solution {
     void initialize(string s)
     {
             m_s = s;
-            m_pos = s.begin(); 
+            m_pos = m_s.begin(); 
             m_val = 0;        
     }
 
@@ -294,9 +293,10 @@ class Solution {
 
             initialize(s);
             
-            while(m_pos != s.end())
+            while(m_pos != m_s.end())
            {
-                
+                                // cout << "{ pos=" << (m_s.end()-m_pos) << "/ size=" << m_s.size() << ";*pos=" << *m_pos << " }\n";
+
 
                 if(Is_CM())
                 {
@@ -321,10 +321,7 @@ class Solution {
                 {
 
                 }
-                if(Is_IV() )
-                {
-
-                }
+                
                 if(Is_IX())
                 {
 
@@ -356,9 +353,17 @@ class Solution {
                 {
 
                 }
-
-                if(Is_III())
+                
+                if(Is_IX() )
                 {
+// i want a way to make this block faster    //
+                }                           //                
+                else if(Is_IV() )          //
+                {                         /////
+                                            //
+                }                          //
+                else if(Is_III())         //
+                {                        //
 
                 }
                 else if(Is_II())
@@ -371,6 +376,8 @@ class Solution {
                 }
                 
                 
+                            
+               // inc_pos(1);
             
            }
 
