@@ -1,7 +1,9 @@
 class Solution {
     private:
-        string m_s;
-        string::iterator m_pos; // store current position
+        const string *m_s;
+        // I rather use const_forward iterator
+        string::const_iterator m_pos; // store current position
+        string::const_iterator m_end_pos; // store end position
         int m_val;
 
     // Increment the current position by inc
@@ -13,7 +15,7 @@ class Solution {
         bool inc_pos(size_t inc)
         {
 
-         if(m_s.end() - m_pos  < inc)
+         if(m_end_pos - m_pos  < inc)
             {
                 return false;
             }
@@ -24,7 +26,7 @@ class Solution {
 
     bool Is_III(){
 
-        if( m_s.end() - m_pos < 3)
+        if( m_end_pos - m_pos < 3)
         {
             return false;
         }
@@ -41,7 +43,7 @@ class Solution {
 
     bool Is_II(){
 
-        if( m_s.end() - m_pos  < 2)
+        if( m_end_pos - m_pos  < 2)
         {
             return false;
         }
@@ -57,7 +59,7 @@ class Solution {
     }
     bool Is_I(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -74,7 +76,7 @@ class Solution {
     
     bool Is_V(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -93,7 +95,7 @@ class Solution {
 
     bool Is_IV(){
 
-        if(m_s.end() - m_pos < 2)
+        if(m_end_pos - m_pos < 2)
         {
             return false;
         }
@@ -110,7 +112,7 @@ class Solution {
     }
     bool Is_IX(){
 
-        if(m_s.end() - m_pos < 2)
+        if(m_end_pos - m_pos < 2)
         {
             return false;
         }
@@ -128,7 +130,7 @@ class Solution {
     
     bool Is_X(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -145,7 +147,7 @@ class Solution {
     
     bool Is_XL(){
 
-        if(m_s.end() - m_pos < 2)
+        if(m_end_pos - m_pos < 2)
         {
             return false;
         }
@@ -163,7 +165,7 @@ class Solution {
     
      bool Is_XC(){
 
-        if(m_s.end() - m_pos < 2)
+        if(m_end_pos - m_pos < 2)
         {
             return false;
         }
@@ -181,7 +183,7 @@ class Solution {
     
      bool Is_L(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -198,7 +200,7 @@ class Solution {
     
      bool Is_C(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -214,7 +216,7 @@ class Solution {
     }
      bool Is_CD(){
 
-        if(m_s.end() - m_pos < 2)
+        if(m_end_pos - m_pos < 2)
         {
             return false;
         }
@@ -231,7 +233,7 @@ class Solution {
     }
      bool Is_CM(){
 
-        if(m_s.end() - m_pos < 2)
+        if(m_end_pos - m_pos < 2)
         {
             return false;
         }
@@ -249,7 +251,7 @@ class Solution {
     
      bool Is_D(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -266,7 +268,7 @@ class Solution {
     
      bool Is_M(){
 
-        if( m_s.end() - m_pos  < 1)
+        if( m_end_pos - m_pos  < 1)
         {
             return false;
         }
@@ -281,10 +283,11 @@ class Solution {
         return false;
     }
     
-    void initialize(string s)
+    void initialize(const string& s)
     {
-            m_s = s;
-            m_pos = m_s.begin(); 
+            m_s = &s;
+            m_pos = m_s->cbegin();
+            m_end_pos = m_s->cend();
             m_val = 0;        
     }
 
@@ -293,9 +296,9 @@ class Solution {
 
             initialize(s);
             
-            while(m_pos != m_s.end())
+            while(m_pos != m_end_pos)
            {
-                                // cout << "{ pos=" << (m_s.end()-m_pos) << "/ size=" << m_s.size() << ";*pos=" << *m_pos << " }\n";
+                                // cout << "{ pos=" << (m_end_pos-m_pos) << "/ size=" << m_s.size() << ";*pos=" << *m_pos << " }\n";
 
 
                 if(Is_CM())
