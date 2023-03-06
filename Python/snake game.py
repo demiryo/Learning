@@ -173,7 +173,7 @@ class Game:
         # grid lines
         turtle.color("grey")
         turtle.pensize(1)
-        for i in xrange(self.top_left[0], self.bottom_right[0], self.box_size):
+        for i in range(int (self.top_left[0]), int (self.bottom_right[0]), int (self.box_size)):
             turtle.penup()
             turtle.goto(i, self.top_left[0])
             turtle.pendown()
